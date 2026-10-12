@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- 検索エンジンに載せない。中身は enc/ の暗号文で、合言葉を知る人だけが開ける -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' blob: data:; media-src 'self' blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="theme-color" content="#16382b">
+  <meta name="apple-mobile-web-app-title" content="KGC">
+  <meta property="og:title" content="KGC">
+  <meta property="og:description" content="Members only">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://tomoki-sh.github.io/kgc-26wxqyph68/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>KGC</title>
+  <link rel="icon" type="image/svg+xml" href="emblem.svg?v=b5ee78cbc1ba">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- ★ ?v= は ./kgc build が中身のハッシュで自動更新する。手で変えない -->
+  <link rel="stylesheet" href="style.css?v=b5ee78cbc1ba">
+</head>
+<body class="locked">
+  <!-- 合言葉の扉。ここに名前・場所・日付を書かない（公開ファイルは平文） -->
+  <div id="gate">
+    <div class="gate-box">
+      <img class="gate-emblem" src="emblem.svg?v=b5ee78cbc1ba" alt="" width="96" height="112">
+      <h1 class="gate-title">Members Only</h1>
+      <p class="gate-lead">合言葉を入れてください</p>
+      <form id="gate-form" hidden autocomplete="on">
+        <!-- パスワード管理（iCloud キーチェーン等）に保存してもらうための隠しユーザー名 -->
+        <input class="gate-user" type="text" name="username" autocomplete="username" value="member" tabindex="-1" aria-hidden="true">
+        <input id="gate-pass" type="password" name="password" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="go" placeholder="合言葉" aria-label="合言葉" required>
+        <label class="gate-remember"><input id="gate-remember" type="checkbox" checked> この端末で覚える</label>
+        <button id="gate-submit" type="submit">開く</button>
+      </form>
+      <p id="gate-msg" class="gate-msg" role="status" aria-live="polite"></p>
+      <p class="gate-foot">
+        覚えた端末は次回から合言葉なしで開きます（合言葉そのものは保存しません）。
+        しばらく開かないと端末側で消えることがあり、その場合は入れ直してください。
+        <button type="button" id="gate-forget" class="gate-forget">この端末の記憶を消す</button>
+      </p>
+    </div>
+  </div>
+
+  <div id="app" hidden></div>
+
+  <script src="crypto.js?v=b5ee78cbc1ba" defer></script>
+  <script src="js/boot.js?v=b5ee78cbc1ba" defer></script>
+  <script src="js/ui.js?v=b5ee78cbc1ba" defer></script>
+  <script src="js/charts.js?v=b5ee78cbc1ba" defer></script>
+  <script src="js/views/home.js?v=b5ee78cbc1ba" defer></script>
+  <script src="js/views/rounds.js?v=b5ee78cbc1ba" defer></script>
+  <script src="js/views/round.js?v=b5ee78cbc1ba" defer></script>
+  <script src="js/views/stats.js?v=b5ee78cbc1ba" defer></script>
+  <script src="js/views/player.js?v=b5ee78cbc1ba" defer></script>
+  <script src="js/views/courses.js?v=b5ee78cbc1ba" defer></script>
+  <script src="js/views/records.js?v=b5ee78cbc1ba" defer></script>
+  <script src="js/views/album.js?v=b5ee78cbc1ba" defer></script>
+  <script src="js/router.js?v=b5ee78cbc1ba" defer></script>
+</body>
+</html>

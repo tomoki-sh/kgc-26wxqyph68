@@ -1,0 +1,32 @@
+# ===== macOS =====
+.DS_Store
+._*
+Icon?
+# ===== エディタ・一時ファイル =====
+.vscode/
+.idea/
+*.swp
+*~
+*.tmp
+# ===== 平文・鍵は絶対に入れない（公開リポジトリ） =====
+private/
+secrets/
+*.local
+*.local.*
+plain/
+manifest.json
+*.jpg
+*.jpeg
+*.JPG
+*.png
+*.PNG
+*.heic
+*.HEIC
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.webp
+# 例外：リンクプレビュー画像とホーム画面アイコン（エンブレムだけで固有名詞なし）
+!og.png
+!apple-touch-icon.png
